@@ -110,13 +110,6 @@ if %ERRORLEVEL% == 0 (
   goto select7zip
 )
 
-rem Installing 7-Zip with user agreement
-:7zipins
-cls
-winget install 7-Zip
-cls
-goto src-handler-7zipconfirmed
-
 rem Asking for 7-Zip install agreement
 :select7zip
 echo Can installer download 7-Zip on your computer? This is needed for unzipping file that includes "src" folder
@@ -124,6 +117,14 @@ set /p select7z="Option (y/n): "
 if %select7z%==y goto 7zipins
 if %select7z%==n goto r
 exit
+
+rem Installing 7-Zip and adding to the PATH to be executed from command line with command with user agreement
+:7zipins
+cls
+winget install 7-Zip
+setx path "%path%;C:\Program Files\7-Zip"
+cls
+goto src-handler-7zipconfirmed
 
 :src-handler-7zipconfirmed
 cls
