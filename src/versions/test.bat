@@ -7,8 +7,6 @@ curl https://github.com/KRWCLASSIC/OptiPack/src/misc/test_download.txt -o test_d
 echo.
 echo Downloading done!
 pause
-goto :exit
-echo If you see this text in command prompt, make an issue on github page.
-pause<nul
-:exit
+cd ../..
+start installer.bat
 exit
