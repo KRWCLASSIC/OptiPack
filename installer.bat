@@ -6,13 +6,14 @@ cls
 
 rem Handler for downloading modules, if you making own version of this installer make git repo with your own /src folder and include your mods
 if exist "src" (
-  goto boot
+  goto temphandler
 ) else (
   rem Downloading "src" folder from project github, this folder includes modules for this to work
   goto src-handler
 )
 cls
 
+:temphandler
 rem Handler for "temp" folder
 cd src
 if exist "temp" (
