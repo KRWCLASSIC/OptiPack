@@ -108,10 +108,18 @@ if %ERRORLEVEL% == 0 (
 
 rem Asking for 7-Zip install agreement
 :select7zip
-echo Can installer download 7-Zip on your computer? This is needed for unzipping file that includes "src" folder (You need to have winget installed)
+echo Can installer download 7-Zip on your computer? This is needed for unzipping file that includes "src" folder (You need to have winget installed, if you want more info type "?")
 set /p select7z="Option (y/n): "
 if %select7z%==y goto 7zipins
 if %select7z%==n goto r
+if %select7z%==? goto ?
+exit
+
+:?
+echo You can test if you have winget installed by opening cmd (Win + R and type cmd) and typing "winget" and if you get results with command help you have winget installed.
+echo If you get error you can install winget from Microsoft Store. (May be called "Package manager")
+pause>nul
+goto select7zip
 exit
 
 rem Installing 7-Zip and adding to the PATH to be executed from command line with command with user agreement
