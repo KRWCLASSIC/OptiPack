@@ -43,9 +43,9 @@ echo.
 rem Selection procedure
 echo 1) Test download to test folder.
 echo 2) Download full OptiPack.
-echo 2) Download minimal OptiPack.
-echo 2) Download full OptiPack with cheats.
-echo 2) Download minimal OptiPack with cheats.
+echo 3) Download minimal OptiPack.
+echo 4) Download full OptiPack with cheats.
+echo 5) Download minimal OptiPack with cheats.
 echo 6) Change deafult minecraft directory.
 echo.
 set /p select="Option: "
