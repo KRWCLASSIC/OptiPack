@@ -1,7 +1,9 @@
 @echo off
 cd ..
-cd temp
-curl https://raw.githubusercontent.com/bucanero/pkgi-ps3/master/CHANGELOG.md -o clog.md
+mkdir test
+cd test
+cls
+curl https://github.com/KRWCLASSIC/OptiPack/src/misc/test_download.txt -o test_downloadED.txt
 echo.
 echo Downloading done!
 pause

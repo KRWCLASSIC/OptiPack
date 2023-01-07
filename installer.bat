@@ -13,9 +13,21 @@ if exist "src" (
 )
 cls
 
+rem Handler for "temp" folder
+cd src
+if exist "temp" (
+  cd ..
+  cls
+  goto boot
+) else (
+  rem Making "temp" directory
+  mkdir temp
+)
+cls
+
 rem If you want to change installer file name you need to include it in all files that go back to this .bat file (This file also uses it 2 lines)
 
-rem Booting procedure
+rem Booting procedure and boot logo/art
 :boot
 echo ╭━━━╮╱╱╭╮╱╭━━━╮╱╱╱╱╱╭╮
 echo ┃╭━╮┃╱╭╯╰╮┃╭━╮┃╱╱╱╱╱┃┃
@@ -29,7 +41,7 @@ echo.
 echo.
 
 rem Selection procedure
-echo 1) Test download to temp folder.
+echo 1) Test download to test folder.
 echo 2) Download full OptiPack.
 echo 2) Download minimal OptiPack.
 echo 2) Download full OptiPack with cheats.
@@ -43,7 +55,9 @@ if %select%==3 goto 3
 if %select%==4 goto 4
 if %select%==5 goto 5
 if %select%==6 goto 6
+rem Restart procedure
 if %select%==r goto r
+rem Testing procedure for handling src folder download
 if %select%==sh goto src-handler
 start installer.bat
 exit
@@ -53,7 +67,7 @@ rem "exit" line between of each tag is to make sure installer.bat window is gett
 
 :1
 cd src/versions
-start yt.bat
+start test.bat
 exit
 
 :2
@@ -88,6 +102,42 @@ exit
 
 rem Handler for situations where there is no "src" folder
 :src-handler
-cd src-handler-temp
+cls
+where 7z.exe >nul 2>&1
+if %ERRORLEVEL% == 0 (
+  goto src-handler-7zipconfirmed
+) else (
+  goto select7zip
+)
+
+rem Installing 7-Zip with user agreement
+:7zipins
+cls
+winget install 7-Zip
+cls
+goto src-handler-7zipconfirmed
+
+rem Asking for 7-Zip install agreement
+:select7zip
+echo Can installer download 7-Zip on your computer? This is needed for unzipping file that includes "src" folder
+set /p select7z="Option (y/n): "
+if %select7z%==y goto 7zipins
+if %select7z%==n goto r
+exit
+
+:src-handler-7zipconfirmed
+cls
+mkdir temp
+cd temp
 curl -LJO https://github.com/KRWCLASSIC/OptiPack/archive/master.zip
-pause
+7z x OptiPack-master.zip
+cls
+goto src-extract
+exit
+
+:src-extract
+cd ..
+move /y "temp/OptiPack-master/src" .
+cls
+goto boot
+exit
