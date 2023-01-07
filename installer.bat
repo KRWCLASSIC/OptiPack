@@ -9,6 +9,7 @@ if exist "src" (
   goto boot
 ) else (
   rem Downloading "src" folder from project github, this folder includes modules for this to work
+  goto src-handler
 )
 cls
 
@@ -43,6 +44,7 @@ if %select%==4 goto 4
 if %select%==5 goto 5
 if %select%==6 goto 6
 if %select%==r goto r
+if %select%==sh goto src-handler
 start installer.bat
 exit
 
@@ -83,3 +85,9 @@ rem Restart installer (For debugging)
 :r
 start installer.bat
 exit
+
+rem Handler for situations where there is no "src" folder
+:src-handler
+cd src-handler-temp
+curl -LJO https://github.com/KRWCLASSIC/OptiPack/archive/master.zip
+pause
