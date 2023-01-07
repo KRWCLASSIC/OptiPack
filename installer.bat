@@ -95,11 +95,6 @@ cd src/misc
 start chg-mc-dir.bat
 exit
 
-rem Restart installer (For debugging)
-:r
-start installer.bat
-exit
-
 rem Handler for situations where there is no "src" folder
 :src-handler
 cls
@@ -112,7 +107,7 @@ if %ERRORLEVEL% == 0 (
 
 rem Asking for 7-Zip install agreement
 :select7zip
-echo Can installer download 7-Zip on your computer? This is needed for unzipping file that includes "src" folder
+echo Can installer download 7-Zip on your computer? This is needed for unzipping file that includes "src" folder (You need to have winget installed)
 set /p select7z="Option (y/n): "
 if %select7z%==y goto 7zipins
 if %select7z%==n goto r
@@ -124,7 +119,7 @@ cls
 winget install 7-Zip
 setx path "%path%;C:\Program Files\7-Zip"
 cls
-goto src-handler-7zipconfirmed
+goto r
 
 :src-handler-7zipconfirmed
 cls
@@ -141,4 +136,9 @@ cd ..
 move /y "temp/OptiPack-master/src" .
 cls
 goto boot
+exit
+
+rem Restart installer (For debugging)
+:r
+start installer.bat
 exit
