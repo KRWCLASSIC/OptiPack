@@ -16,9 +16,7 @@ cls
 
 rem Handler for "temp" folder
 :temphandler
-cd src
-if exist "temp" (
-  cd ..
+if exist "src/temp" (
   cls
   goto boot
 ) else (
@@ -41,6 +39,7 @@ echo ╱╱╱╱┃┃
 echo ╱╱╱╱╰╯   Version 0.1
 echo.
 echo.
+echo %cd%
 
 rem Selection procedure
 echo 1) Test download to test folder.
@@ -108,7 +107,7 @@ if %ERRORLEVEL% == 0 (
 rem Asking for 7-Zip install agreement
 :select7zip
 echo Can installer download 7-Zip on your computer? This is needed for unzipping file that includes "src" folder (You need to have winget installed, if you want more info type "?")
-set /p select7z="Option (y/n): "
+set /p select7z="Option (y/n/?): "
 if %select7z%==y goto 7zipins
 if %select7z%==n goto r
 if %select7z%==? goto ?
@@ -125,7 +124,6 @@ rem Installing 7-Zip and adding to the PATH to be executed from command line wit
 :7zipins
 cls
 winget install 7-Zip
-setx path "%path%;C:\Program Files\7-Zip"
 cls
 goto r
 
@@ -134,7 +132,7 @@ cls
 mkdir temp
 cd temp
 curl -LJO https://github.com/KRWCLASSIC/OptiPack/archive/master.zip
-7z x OptiPack-master.zip
+C:\Program Files\7-Zip\7z.exe x OptiPack-master.zip
 cls
 goto src-extract
 exit
@@ -144,8 +142,7 @@ cd ..
 move /y "temp/OptiPack-master/src" .
 rd /s /q temp
 cls
-cd src/misc
-start firstbootrestart.bat
+goto r
 exit
 
 rem Restart installer
