@@ -7,8 +7,16 @@ set /p mc-dir=<mc-dir.txt
 rem Moving mods procedure
 cd ..
 cd temp
-move /y "*" "C:\Users\%USERNAME%\%mc-dir%\mods"
+
+rem Iterate through all files in the temp directory
+for %%f in (*) do (
+  rem Move the current file to the Minecraft mods directory
+  move /y "%%f" "%USERPROFILE%\%mc-dir%\mods"
+  cls
+)
+
 echo Moving mods completed!
+echo Press any key to close program.
 pause>nul
 
 rem Closing post-init.bat file

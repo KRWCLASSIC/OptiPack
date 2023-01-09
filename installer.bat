@@ -96,7 +96,7 @@ cd src/misc
 start chg-mc-dir.bat
 exit
 
-rem Handler for situations where there is no "src" folder
+rem Handler for situations where there is no "src" folder e.g. first boot
 :src-handler
 cls
 where 7z.exe >nul 2>&1
