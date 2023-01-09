@@ -3,7 +3,7 @@ cd ..
 mkdir test
 cd test
 cls
-curl https://github.com/KRWCLASSIC/OptiPack/blob/master/src/misc/download-sources/test_download.txt -o test_downloadED.txt
+curl https://raw.githubusercontent.com/KRWCLASSIC/OptiPack/master/src/misc/download-sources/test_download.txt -o test_downloadED.txt
 echo.
 echo Downloading done!
 pause

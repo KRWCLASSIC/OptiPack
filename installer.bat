@@ -13,8 +13,8 @@ if exist "src" (
 )
 cls
 
-:temphandler
 rem Handler for "temp" folder
+:temphandler
 cd src
 if exist "temp" (
   cd ..
