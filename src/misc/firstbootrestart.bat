@@ -1,3 +1,4 @@
+@echo off
 cd ../..
 start installer.bat
 cd src/misc
