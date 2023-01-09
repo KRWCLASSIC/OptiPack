@@ -5,6 +5,7 @@ rem "cls" here clears output of chcp command that says its now using other chara
 cls
 
 rem Handler for downloading modules, if you making own version of this installer make git repo with your own /src folder and include your mods
+:src-existance-checker
 if exist "src" (
   goto temphandler
 ) else (
@@ -141,8 +142,10 @@ exit
 :src-extract
 cd ..
 move /y "temp/OptiPack-master/src" .
+rd /s /q temp
 cls
-goto boot
+cd src/misc
+start firstbootrestart.bat
 exit
 
 rem Restart installer (For debugging)
