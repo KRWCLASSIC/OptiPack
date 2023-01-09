@@ -58,8 +58,6 @@ if %select%==5 goto 5
 if %select%==6 goto 6
 rem Restart procedure
 if %select%==r goto r
-rem Testing procedure for handling src folder download
-if %select%==sh goto src-handler
 start installer.bat
 exit
 
