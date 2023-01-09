@@ -148,7 +148,7 @@ cd src/misc
 start firstbootrestart.bat
 exit
 
-rem Restart installer (For debugging)
+rem Restart installer
 :r
 start installer.bat
 exit
