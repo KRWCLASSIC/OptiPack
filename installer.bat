@@ -16,14 +16,14 @@ cls
 
 rem Handler for "temp" folder
 :temphandler
-cd src
-if exist "temp" (
-  cd ..
+if exist "src/temp" (
   cls
   goto boot
 ) else (
   rem Making "temp" directory
+  cd src
   mkdir temp
+  cd ..
 )
 cls
 
