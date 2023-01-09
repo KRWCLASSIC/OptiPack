@@ -15,6 +15,8 @@ Yes, if you dont belive read code.
 - Why are cheats stored in installer files? -
 Currently they're not but will be because one of the cheats doesnt support 1.19.2 natively, i had to manually edit jar file to allow 1.19.2 to load it.
 - Can you make version for 1.xx.x? -
-Maybe, i dont play versions below 1.16.5
+Maybe, i dont play versions below 1.16.5.
 - Why 1.19.2 not 1.19.3? -
-Because i dont like 1.19.3 lol
+Because i dont like 1.19.3 lol.
+- Why is this written in batch?
+Because its easy and i know enough about it to make smth with it.
