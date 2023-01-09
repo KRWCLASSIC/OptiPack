@@ -15,8 +15,10 @@ if exist "src" (
 cls
 
 rem Handler for "temp" folder
+cd src
 :temphandler
-if exist "src/temp" (
+if exist "temp" (
+  cd ..
   cls
   goto boot
 ) else (

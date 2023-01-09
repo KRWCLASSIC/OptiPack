@@ -27,7 +27,6 @@ rem Finishing procedure
 echo Downloading finished!
 echo Press any key to continue the installation
 pause>nul
-cd ..
 cd misc
 start post-init.bat
 exit
