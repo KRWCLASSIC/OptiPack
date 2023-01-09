@@ -39,7 +39,6 @@ echo ╱╱╱╱┃┃
 echo ╱╱╱╱╰╯   Version 0.1
 echo.
 echo.
-echo %cd%
 
 rem Selection procedure
 echo 1) Test download to test folder.
@@ -132,7 +131,7 @@ cls
 mkdir temp
 cd temp
 curl -LJO https://github.com/KRWCLASSIC/OptiPack/archive/master.zip
-C:\Program Files\7-Zip\7z.exe x OptiPack-master.zip
+7z x OptiPack-master.zip
 cls
 goto src-extract
 exit

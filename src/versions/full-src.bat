@@ -21,6 +21,7 @@ for /f "usebackq delims=" %%i in ("%dlpath%") do (
 )
 
 cls
+echo %cd%
 
 rem Finishing procedure
 echo Downloading finished!
