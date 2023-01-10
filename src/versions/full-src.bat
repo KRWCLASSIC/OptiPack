@@ -12,16 +12,15 @@ set "dlpath=%where%\%filename%"
 rem Selection of the download folder (temporarly, when all file are downloaded post-init.bat is executed to finish the download)
 set "savefolder=%CD%"
 
-rem Installing procedure ("cd temp" before a downloading loop is for making sure to save the files into "temp" dir. Yeah it doesnt work if you add it to savefolder variable, weird ig)
-cd temp
-for /f "usebackq delims=" %%i in ("%dlpath%") do (
-  cls
-  echo Downloading %%~nxi
-  curl -L -O "%%i" -o "%savefolder%\%%~nxn"
-)
+rem rem Installing procedure ("cd temp" before a downloading loop is for making sure to save the files into "temp" dir. Yeah it doesnt work if you add it to savefolder variable, weird ig)
+rem cd temp
+rem for /f "usebackq delims=" %%i in ("%dlpath%") do (
+rem  cls
+rem  echo Downloading %%~nxi
+rem  curl -L -O "%%i" -o "%savefolder%\%%~nxn"
+rem )
 
 cls
-echo %cd%
 
 rem Finishing procedure
 echo Downloading finished!

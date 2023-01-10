@@ -119,7 +119,6 @@ echo You can test if you have winget installed by opening cmd (Win + R and type 
 echo If you get error you can install winget from Microsoft Store. (May be called "Package manager")
 pause>nul
 goto select7zip
-exit
 
 rem Installing 7-Zip and adding to the PATH to be executed from command line with command with user agreement
 :7zipins
@@ -133,10 +132,9 @@ cls
 mkdir temp
 cd temp
 curl -LJO https://github.com/KRWCLASSIC/OptiPack/archive/master.zip
-7z x OptiPack-master.zip
+"C:\Program Files\7-Zip\7z.exe" x OptiPack-master.zip
 cls
 goto src-extract
-exit
 
 :src-extract
 cd ..
@@ -144,7 +142,6 @@ move /y "temp/OptiPack-master/src" .
 rd /s /q temp
 cls
 goto r
-exit
 
 rem Restart installer
 :r
