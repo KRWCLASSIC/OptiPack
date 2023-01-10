@@ -66,27 +66,27 @@ rem Selection executables
 rem "exit" line between of each tag is to make sure installer.bat window is getting closed when opening other *.bat file
 
 :1
-cd src/versions
+cd src/installers
 start test.bat
 exit
 
 :2
-cd src/versions
+cd src/installers
 start full-src.bat
 exit
 
 :3
-cd src/versions
+cd src/installers
 start min-src.bat
 exit
 
 :4
-cd src/versions
+cd src/installers
 start full+cheats-src.bat
 exit
 
 :5
-cd src/versions
+cd src/installers
 start min+cheats-src.bat
 exit
 

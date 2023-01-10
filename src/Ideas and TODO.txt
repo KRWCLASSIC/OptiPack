@@ -5,12 +5,13 @@
 - Make all download sources files
 
 # For OpenModpackEngine downloader/manager:
+- Go back to OME main executable after post-init.bat
 - Modpack "repo's". (Like, you select option for adding repo and it will clone its module from modpack dev git(hub/lab) to download it so you can have one manager for many modpacks)
 - Exporting (and Importing) all downloaded/added repo's
 - Much more customizability and for modpack makers editor for adding mod links
-- Verifier if all mods from modpack are from safe source (like curseforge)
+- Verifier if all mods from modpack are from safe source (like curseforge <-curseforge has anti bot bruh)
 - Auto updater
-- Support for forge, rift and quilt mod/modpacks
+- Support for forge, rift and quilt modpacks
 - Modpack info viewer
 - Modloader with correct version checker (If exists and if true if supported by modpack version, If exists false:)
 - Auto Modloader downloader

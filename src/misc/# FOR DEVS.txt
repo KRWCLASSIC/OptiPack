@@ -1,0 +1,5 @@
+# installer.bat refrences in:
+
+- installer.bat
+- src/misc/chg-mc-dir.bat
+- src/installers/test.bat
