@@ -7,9 +7,10 @@ cls
 rem Handler for downloading modules, if you making own version of this installer make git repo with your own /src folder and include your mods
 :src-existance-checker
 if exist "src" (
+  rem Going to the "temp" folder handler
   goto temphandler
 ) else (
-  rem Downloading "src" folder from project github, this folder includes modules for this to work
+  rem Downloading "src" folder from project github, this folder includes modules for this to work (By going to src-handler)
   goto src-handler
 )
 cls
@@ -17,17 +18,16 @@ cls
 rem Handler for "temp" folder
 :temphandler
 if exist "src/temp" (
+  rem Continuing with booting procedure
   cls
   goto boot
 ) else (
-  rem Making "temp" directory
+  rem Making "temp" directory in "src" folder
   cd src
   mkdir temp
   cd ..
 )
 cls
-
-rem If you want to change installer file name you need to include it in all files that go back to this .bat file (This file also uses it 2 lines)
 
 rem Booting procedure and boot logo/art
 :boot
@@ -43,7 +43,7 @@ echo.
 echo.
 
 rem Selection procedure
-echo 1) Test download to test folder.
+echo 1) Test download to "test" folder.
 echo 2) Download full OptiPack.
 echo 3) Download minimal OptiPack.
 echo 4) Download full OptiPack with cheats.
@@ -98,35 +98,42 @@ exit
 rem Handler for situations where there is no "src" folder e.g. first boot
 :src-handler
 cls
+rem Check if there is 7-Zip installed anywhere (Will be changed in the future to: Check if installed in "C:\Program Files\7-Zip\7z.exe" because of cases like 7-Zip installed elsewhere will break unzipping procedure)
 where 7z.exe >nul 2>&1
 if %ERRORLEVEL% == 0 (
+  rem If there is installed 7-Zip, go to :src-handler-7zipconfirmed label
   goto src-handler-7zipconfirmed
 ) else (
+  rem If there isnt (Error output by "where" command) go to :select7zip label (Install 7-Zip or not)
   goto select7zip
 )
 
 rem Asking for 7-Zip install agreement
+rem Yes - go to installing procedure, No - close the installer, ? - show more info
 :select7zip
 echo Can installer download 7-Zip on your computer? This is needed for unzipping file that includes "src" folder (You need to have winget installed, if you want more info type "?")
 set /p select7z="Option (y/n/?): "
 if %select7z%==y goto 7zipins
-if %select7z%==n goto r
+if %select7z%==n goto exit
 if %select7z%==? goto ?
 exit
 
+rem Basicly nothing important, just some info about winget
 :?
 echo You can test if you have winget installed by opening cmd (Win + R and type cmd) and typing "winget" and if you get results with command help you have winget installed.
 echo If you get error you can install winget from Microsoft Store. (May be called "Package manager")
 pause>nul
 goto select7zip
 
-rem Installing 7-Zip and adding to the PATH to be executed from command line with command with user agreement
+rem Installing 7-Zip using winget with user agreement and continuing the installation
 :7zipins
 cls
+echo Installing 7-Zip
 winget install 7-Zip
 cls
-goto r
+goto src-handler-7zipconfirmed
 
+rem Creating temp folder outside of the "src" folder (because it isnt exists yet) and downloading into it OptiPack github repo
 :src-handler-7zipconfirmed
 cls
 mkdir temp
@@ -134,16 +141,23 @@ cd temp
 curl -LJO https://github.com/KRWCLASSIC/OptiPack/archive/master.zip
 "C:\Program Files\7-Zip\7z.exe" x OptiPack-master.zip
 cls
+rem Continuing with the installation
 goto src-extract
 
+rem Moving out "src" folder out of the "temp" folder and removing unnecessary "temp" folder
 :src-extract
 cd ..
 move /y "temp/OptiPack-master/src" .
 rd /s /q temp
 cls
+rem Restarting installer to make sure "src" folder is being detected, yes, you could just go back to the src-handler but why? lol
 goto r
 
-rem Restart installer
+rem Restart installer procedure
 :r
 start installer.bat
+exit
+
+rem Closing installer procedure
+:exit
 exit

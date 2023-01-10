@@ -8,9 +8,10 @@ rem Moving mods procedure
 cd ..
 cd temp
 
-rem Iterate through all files in the temp directory
-for %%f in (*) do (
-  rem Move the current file to the Minecraft mods directory
+rem Iterate through all *.jar files in the temp directory
+for %%f in (*jar) do (
+  rem Move the current *.jar file to the Minecraft mods directory
+  echo Moving %%~nxi...
   move /y "%%f" "%USERPROFILE%\%mc-dir%\mods"
   cls
 )
