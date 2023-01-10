@@ -1,6 +1,0 @@
-# If you want to change installer file name you need to include it in all files that go back to this .bat file
-# installer.bat refrences in:
-
-- installer.bat
-- src/misc/chg-mc-dir.bat
-- src/installers/test.bat
