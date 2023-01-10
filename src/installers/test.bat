@@ -7,7 +7,7 @@ cd test
 cls
 
 rem Download test file from github with diffrent name
-curl https://raw.githubusercontent.com/KRWCLASSIC/OptiPack/master/src/misc/download-sources/test_download.txt -o test_downloadED.txt
+curl https://raw.githubusercontent.com/KRWCLASSIC/OptiPack/master/src/misc/test_download.txt -o test_downloadED.txt
 echo.
 
 rem Going back to the installer.bat and closing this script
