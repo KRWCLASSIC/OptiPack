@@ -25,7 +25,7 @@ cls
 rem Finishing procedure
 echo Downloading finished!
 echo Press any key to continue the installation
+pause>nul
 cd misc
 start post-init.bat
-pause
 exit
