@@ -4,3 +4,28 @@
 - installer.bat
 - src/misc/chg-mc-dir.bat
 - src/installers/test.bat
+
+# Idk if im able to make script to download all files from the server so there is python script for scraping github download url's i used
+# to fill up current version of full-src.txt (github has anti-bot system bruh, gonna need to search for another host or make same thing i did with src handler)
+
+==========================================================================================
+import requests
+from bs4 import BeautifulSoup
+import os
+
+url = "url-you-want-to-scrape-from-dl-links.com/username-ig/repo-or-some-sheet/tree/master-or-other-branch"
+
+# Use requests to download the HTML of the webpage
+response = requests.get(url)
+
+# Use BeautifulSoup to parse the HTML
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# Find all the links on the page that point to files
+links = [a['href'] for a in soup.find_all('a', href=True) if '/blob/' in a['href']]
+
+# Iterate through the links and fetch download links
+for link in links:
+    file_url = "https://github.com" + link
+    print('"' + file_url + '"')
+==========================================================================================
