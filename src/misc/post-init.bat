@@ -27,7 +27,6 @@ if exist "%USERPROFILE%\%mc-dir%\mods\Archive%num%\*.jar" (
   echo No previously installed mods found. Started mods moving procedure!
   rd /s /q "%USERPROFILE%\%mc-dir%\mods\Archive%num%"
 )
-pause
 
 
 rem Moving mods procedure
