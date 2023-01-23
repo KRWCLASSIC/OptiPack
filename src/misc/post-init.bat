@@ -17,15 +17,16 @@ if exist "%USERPROFILE%\%mc-dir%\mods\Archive%num%" goto checkloop
 rem Create the new Archive folder
 mkdir "%USERPROFILE%\%mc-dir%\mods\Archive%num%"
 rem Move all *.jar files to the Archive folder with current value of %num% variable ()
-move "%USERPROFILE%\%mc-dir%\mods\*.jar" "%USERPROFILE%\%mc-dir%\mods\Archive%num%"
+move "%USERPROFILE%\%mc-dir%\mods\*.jar" "%USERPROFILE%\%mc-dir%\mods\Archive%num%" >nul
 cls
 
 rem Check if any *.jar file was moved
-if exist "%USERPROFILE%\mods\%mc-dir%\Archive%num%\*.jar" (
+if exist "%USERPROFILE%\%mc-dir%\mods\Archive%num%\*.jar" (
   echo Previously installed mods detected: Mods were moved to "%USERPROFILE%\mods\%mc-dir%\Archive%num%"
+  pause
 ) else (
   echo No previously installed mods found. Started mods moving procedure!
-  rd /s /q "%USERPROFILE%\mods\%mc-dir%\Archive%num%"
+  rd /s /q "%USERPROFILE%\%mc-dir%\mods\Archive%num%"
 )
 
 
