@@ -7,6 +7,7 @@ set /p mc-dir=<mc-dir.txt
 rem Setting %num% to 0
 set "num=0"
 
+
 rem Saving downloaded mods from combining with mods in ".minecraft/mods" procedure, basicly checks if there is any *.jar file in mods dir, if there is archive it in a folder
 rem loop that adds 1 to the %num% variable if there is Archive folder with that number
 :checkloop
@@ -17,6 +18,15 @@ rem Create the new Archive folder
 mkdir "%USERPROFILE%\%mc-dir%\mods\Archive%num%"
 rem Move all *.jar files to the Archive folder with current value of %num% variable ()
 move "%USERPROFILE%\%mc-dir%\mods\*.jar" "%USERPROFILE%\%mc-dir%\mods\Archive%num%"
+cls
+
+rem Check if any *.jar file was moved
+if exist "%USERPROFILE%\mods\%mc-dir%\Archive%num%\*.jar" (
+  echo Previously installed mods detected: Mods were moved to "%USERPROFILE%\mods\%mc-dir%\Archive%num%"
+) else (
+  echo No previously installed mods found. Started mods moving procedure!
+  rd /s /q "%USERPROFILE%\mods\%mc-dir%\Archive%num%"
+)
 
 
 rem Moving mods procedure

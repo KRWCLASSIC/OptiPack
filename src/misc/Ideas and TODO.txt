@@ -3,6 +3,12 @@
 - Add cheats to the folder
 - Make all download sources files
 
+# For ModPackSwitcher
+- You can save modpacks with any name you want
+- Modpacks Archiver (Better to archive than move to folder lol)
+- Save/Load modpacks
+- Autoupdate ig
+
 # For OpenModpackEngine downloader/manager:
 - Go back to OME main executable after post-init.bat
 - Modpack "repo's". (Like, you select option for adding repo and it will clone its module from modpack dev git(hub/lab) to download it so you can have one manager for many modpacks)
