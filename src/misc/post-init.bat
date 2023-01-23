@@ -22,12 +22,12 @@ cls
 
 rem Check if any *.jar file was moved
 if exist "%USERPROFILE%\%mc-dir%\mods\Archive%num%\*.jar" (
-  echo Previously installed mods detected: Mods were moved to "%USERPROFILE%\mods\%mc-dir%\Archive%num%"
-  pause
+  echo Previously installed mods detected: Mods were moved to "%USERPROFILE%\%mc-dir%\mods\Archive%num%"
 ) else (
   echo No previously installed mods found. Started mods moving procedure!
   rd /s /q "%USERPROFILE%\%mc-dir%\mods\Archive%num%"
 )
+pause
 
 
 rem Moving mods procedure
