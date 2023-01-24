@@ -19,5 +19,5 @@ pause >nul
 
 rem Going back to the installer.bat and closing this script
 cd ../..
-start installer.bat
+call installer.bat
 exit

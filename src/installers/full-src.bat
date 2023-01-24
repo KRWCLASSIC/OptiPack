@@ -1,4 +1,5 @@
 @echo off
+cls
 cd ..
 
 rem #Documentation#
@@ -41,6 +42,7 @@ echo Press any key to continue the installation
 pause>nul
 
 rem Starting post-init.bat and closing this script
+cd ..
 cd misc
-start post-init.bat
+call post-init.bat
 exit

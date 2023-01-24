@@ -59,7 +59,7 @@ if %select%==5 goto 5
 if %select%==6 goto 6
 rem Restart procedure
 if %select%==r goto r
-start installer.bat
+call installer.bat
 exit
 
 rem Selection executables
@@ -67,32 +67,32 @@ rem "exit" line between of each tag is to make sure installer.bat window is gett
 
 :1
 cd src/installers
-start test.bat
+call test.bat
 exit
 
 :2
 cd src/installers
-start full-src.bat
+call full-src.bat
 exit
 
 :3
 cd src/installers
-start min-src.bat
+call min-src.bat
 exit
 
 :4
 cd src/installers
-start full+cheats-src.bat
+call full+cheats-src.bat
 exit
 
 :5
 cd src/installers
-start min+cheats-src.bat
+call min+cheats-src.bat
 exit
 
 :6
 cd src/misc
-start chg-mc-dir.bat
+call chg-mc-dir.bat
 exit
 
 rem Handler for situations where there is no "src" folder e.g. first boot
@@ -155,7 +155,7 @@ goto r
 
 rem Restart installer procedure
 :r
-start installer.bat
+call installer.bat
 exit
 
 rem Closing installer procedure
