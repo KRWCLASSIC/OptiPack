@@ -38,8 +38,8 @@ cls
 
 rem Finishing procedure
 echo Downloading finished!
-echo Press any key to continue the installation
-pause>nul
+echo Entering the finalization procedure...
+timeout /t 3 <nul
 
 rem Starting post-init.bat and closing this script
 cd ..
