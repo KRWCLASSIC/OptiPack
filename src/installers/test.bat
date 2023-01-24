@@ -1,4 +1,5 @@
 @echo off
+title Download Test
 cd ..
 
 rem Making "test" folder and going into it

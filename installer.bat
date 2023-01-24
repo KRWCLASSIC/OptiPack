@@ -1,4 +1,5 @@
 @echo off
+title Main Menu
 rem "chcp 65001" allows to use non ASCII characters (used for OptiPack logo below)
 chcp 65001
 rem "cls" here clears output of chcp command that says its now using other character set

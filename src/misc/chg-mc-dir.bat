@@ -1,4 +1,5 @@
 @echo off
+title Minecraft directory changer
 cls
 echo Deafult minecraft directory that this program uses is "AppData\Roaming\.minecraft". 
 echo Provide where mods should be installed.

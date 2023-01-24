@@ -1,4 +1,5 @@
 @echo off
+title Full OptiPack Downloader
 cls
 cd ..
 

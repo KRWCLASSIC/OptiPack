@@ -1,4 +1,5 @@
 @echo off
+title Post Initialization
 rem This file is executed when any of the *-src.bat files finishes its work, this script moves all mods to your minecraft directory
 
 rem Load minecraft path to a post-init.bat to finish installing procedure
