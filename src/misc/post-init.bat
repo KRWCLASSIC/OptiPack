@@ -36,7 +36,7 @@ rem Unzipping modpack
 rem Use a for loop to iterate through all *.zip files
 for %%f in (*.zip) do (
   rem Extract the current file using 7-Zip
-  "misc\7zEmbeded.exe" x -y "temp\%%f" 
+  "misc\7zEmbeded.exe" x -y "temp\%%f"
   del "%%f" 
 )
 echo.
