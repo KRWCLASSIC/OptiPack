@@ -30,16 +30,15 @@ if exist "%USERPROFILE%\%mc-dir%\mods\Archive%num%\*.jar" (
 )
 timeout /t 3 >nul
 cls
+
 cd ..
 
 rem Unzipping modpack
 rem Use a for loop to iterate through all *.zip files
-for %%f in (*.zip) do (
+for %%f in (temp\*.zip) do (
   rem Extract the current file using 7-Zip
-  "misc\7zEmbeded.exe" x -y "temp\%%f"
+  "%cd%\misc\7zEmbeded.exe" x -y "temp\%%f"
   del "temp\%%f" 
-  echo %%f
-  echo %%~f
 )
 echo Modpack files extracted.
 pause
