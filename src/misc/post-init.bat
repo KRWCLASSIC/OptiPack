@@ -1,4 +1,4 @@
-@echo on
+@echo off
 title Post Initialization
 rem This file is executed when any of the *-src.bat files finishes its work, this script moves all mods to your minecraft directory
 
@@ -37,11 +37,10 @@ rem Unzipping modpack
 rem Use a for loop to iterate through all *.zip files
 for %%f in (temp\*.zip) do (
   rem Extract the current file using 7-Zip
-  "%cd%\misc\7zEmbeded.exe" x -y "temp\%%f"
+  "%cd%\misc\7zEmbeded.exe" x -y "%%f" -o"temp"
   del "temp\%%f" 
 )
 echo Modpack files extracted.
-pause
 timeout /t 2 >nul
 cls
 
