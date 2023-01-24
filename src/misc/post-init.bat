@@ -1,4 +1,4 @@
-@echo off
+@echo on
 title Post Initialization
 rem This file is executed when any of the *-src.bat files finishes its work, this script moves all mods to your minecraft directory
 
@@ -40,6 +40,7 @@ for %%f in (*.zip) do (
   del "temp\%%f" 
 )
 echo Modpack files extracted.
+pause
 timeout /t 2 >nul
 cls
 
