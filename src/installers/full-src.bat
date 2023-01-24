@@ -39,7 +39,7 @@ cls
 rem Finishing procedure
 echo Downloading finished!
 echo Entering the finalization procedure...
-timeout /t 3 <nul
+timeout /t 3 >nul
 
 rem Starting post-init.bat and closing this script
 cd ..

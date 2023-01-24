@@ -27,7 +27,7 @@ if exist "%USERPROFILE%\%mc-dir%\mods\Archive%num%\*.jar" (
   echo No previously installed mods found. Started mods moving procedure!
   rd /s /q "%USERPROFILE%\%mc-dir%\mods\Archive%num%"
 )
-timeout /t 3 <nul
+timeout /t 3 >nul
 cls
 
 cd ..
@@ -42,7 +42,7 @@ for %%f in (*.zip) do (
 )
 echo.
 echo Modpack files extracted.
-timeout /t 2 <nul
+timeout /t 2 >nul
 cls
 
 rem Moving mods procedure
@@ -55,7 +55,7 @@ for %%f in (*jar) do (
 )
 
 echo Moving mods completed!
-timeout /t 5 <nul
+timeout /t 5 >nul
 
 rem Closing post-init.bat file
 goto exit
