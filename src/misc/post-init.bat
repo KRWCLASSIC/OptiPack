@@ -38,6 +38,8 @@ for %%f in (*.zip) do (
   rem Extract the current file using 7-Zip
   "misc\7zEmbeded.exe" x -y "temp\%%f"
   del "temp\%%f" 
+  echo %%f
+  echo %%~f
 )
 echo Modpack files extracted.
 pause
