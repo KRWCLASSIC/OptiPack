@@ -56,7 +56,7 @@ set /p select="Option: "
 if %select%==1 goto 1
 if %select%==2 goto 2
 if %select%==3 goto 3
-if %select%==6 goto 4
+if %select%==4 goto 4
 rem Restart procedure
 if %select%==r goto r
 call installer.bat
