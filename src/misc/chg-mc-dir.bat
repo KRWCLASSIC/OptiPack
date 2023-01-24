@@ -1,4 +1,5 @@
 @echo off
+cls
 echo Deafult minecraft directory that this program uses is "AppData\Roaming\.minecraft". 
 echo Provide where mods should be installed.
 echo You can only use directories assigned to your Windows account because of certain bug 

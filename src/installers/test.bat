@@ -14,5 +14,5 @@ rem Going back to the installer.bat and closing this script
 echo Downloading done!
 pause
 cd ../..
-start installer.bat
+call installer.bat
 exit
