@@ -47,6 +47,5 @@ pause>nul
 
 rem Closing post-init.bat file
 goto exit
-pause
 :exit
 exit

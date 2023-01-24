@@ -4,6 +4,9 @@ chcp 65001
 rem "cls" here clears output of chcp command that says its now using other character set
 cls
 
+rem Version variable
+set "ver=b0.3.1"
+
 rem Handler for downloading modules, if you making own version of this installer make git repo with your own /src folder and include your mods
 :src-existance-checker
 if exist "src" (
@@ -38,7 +41,7 @@ echo      ┃┃╱┃┃╭╮┃┃┣┫╭━━┫╭╮┃╭━┫╰╯�
 echo      ┃╰━╯┃╰╯┃╰┫┃┃╱╱┃╭╮┃╰━┫╭╮╮
 echo      ╰━━━┫╭━┻━┻┻╯╱╱╰╯╰┻━━┻╯╰╯
 echo      ╱╱╱╱┃┃
-echo      ╱╱╱╱╰╯   Version b0.3
+echo      ╱╱╱╱╰╯   Version %ver%
 echo.
 echo.
 

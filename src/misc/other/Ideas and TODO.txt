@@ -2,12 +2,17 @@
 - If exists *.jar in /mods mkdir ArchivedMods1(2,3,4..∞) and move *.jar to ArchivedMods* (Yes, i love cmd, how did you guessed?)
 - Add cheats to the folder
 - Make all download sources files
+- Universal 7zip path (Now it needs to be in "C:\Program Files\7-Zip\7z.exe, in the future it will detect 7z path and use it to unzip src folder)
 
 # For ModPackSwitcher
 - You can save modpacks with any name you want
 - Modpacks Archiver (Better to archive than move to folder lol)
 - Save/Load modpacks
 - Autoupdate ig
+
+# For BatchCraft Collection
+- Little batch script for downloading and installing all of my programs described there
+- Integration of other minecraft tools made in batch (with credits ofc)
 
 # For OpenModpackEngine downloader/manager:
 - MPS (ModPackSwitcher) integration
