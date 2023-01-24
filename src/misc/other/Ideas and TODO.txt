@@ -1,6 +1,5 @@
 # For OptiPack installer:
-- Make all download sources files
-- Universal 7zip path (Now it needs to be in "C:\Program Files\7-Zip\7z.exe, in the future it will detect 7z path and use it to unzip src folder)
+- Make all download sources files (Soon full release)
 
 # For ModPackSwitcher
 - You can save modpacks with any name you want
