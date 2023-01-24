@@ -12,7 +12,7 @@ echo.
 
 rem Going back to the installer.bat and closing this script
 echo Downloading done!
-pause
+timeout /t 2 >nul
 cd ../..
 call installer.bat
 exit
