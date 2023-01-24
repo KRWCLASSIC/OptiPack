@@ -28,20 +28,25 @@ if exist "%USERPROFILE%\%mc-dir%\mods\Archive%num%\*.jar" (
   echo No previously installed mods found. Started mods moving procedure!
   rd /s /q "%USERPROFILE%\%mc-dir%\mods\Archive%num%"
 )
+echo Wait...
 timeout /t 3 >nul
 cls
 
 cd ..
 
 rem Unzipping modpack
-rem Use a for loop to iterate through all *.zip files
+rem Use a for loop to iterate through all *.zip files in temp folder
 for %%f in (temp\*.zip) do (
+  rem Telling user what is happening at this moment with including modular filename detector
   echo Extracting files from %%~nxf...
-  rem Extract the current file using 7-Zip
+  rem Extract the current file using embeded 7-Zip
   "%cd%\misc\7zEmbeded.exe" x -y "%%f" -o"temp" >nul
-  del "%%f" 
+  rem Deleting useless now *.zip file
+  del "%%f"
+  cls
 )
 echo Modpack files extracted.
+echo Wait...
 timeout /t 2 >nul
 cls
 
@@ -57,6 +62,7 @@ for %%f in (*jar) do (
 )
 
 echo Moving mods completed!
+echo Wait or close the program.
 timeout /t 5 >nul
 
 rem Closing post-init.bat file

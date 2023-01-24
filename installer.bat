@@ -6,7 +6,7 @@ rem "cls" here clears output of chcp command that says its now using other chara
 cls
 
 rem Version variable
-set "ver=b0.3.3"
+set "ver=b0.4"
 
 rem Handler for downloading modules, if you making own version of this installer make git repo with your own /src folder and include your mods
 :src-existance-checker
