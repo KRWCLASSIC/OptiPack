@@ -27,12 +27,24 @@ if exist "%USERPROFILE%\%mc-dir%\mods\Archive%num%\*.jar" (
   echo No previously installed mods found. Started mods moving procedure!
   rd /s /q "%USERPROFILE%\%mc-dir%\mods\Archive%num%"
 )
+timeout /t 3
+cls
 
-
-rem Moving mods procedure
 cd ..
 cd temp
 
+rem Unzipping modpack
+rem Use a for loop to iterate through all *.zip files
+for %%f in (*.zip) do (
+  rem Extract the current file using 7-Zip
+  "C:\Program Files\7-Zip\7z.exe" x "%%f" -y
+  del "%%f" 
+)
+echo Modpack files have been extracted.
+timeout /t 2
+cls
+
+rem Moving mods procedure
 rem Iterate through all *.jar files in the temp directory
 for %%f in (*jar) do (
   rem Move the current *.jar file to the Minecraft mods directory
@@ -42,8 +54,7 @@ for %%f in (*jar) do (
 )
 
 echo Moving mods completed!
-echo Press any key to close program.
-pause>nul
+timeout /t 5
 
 rem Closing post-init.bat file
 goto exit
