@@ -15,7 +15,7 @@ if exist "src" (
   goto temphandler
 ) else (
   rem Downloading "src" folder from project github, this folder includes modules for this to work (By going to src-handler)
-  goto src-handler
+  goto 7zipins
 )
 cls
 
@@ -85,53 +85,23 @@ cd src/misc
 call chg-mc-dir.bat
 exit
 
-rem Handler for situations where there is no "src" folder e.g. first boot
-:src-handler
-cls
-rem Check if there is 7-Zip installed anywhere (Will be changed in the future to: Check if installed in "C:\Program Files\7-Zip\7z.exe" because of cases like 7-Zip installed elsewhere will break unzipping procedure)
-where 7z.exe >nul 2>&1
-if %ERRORLEVEL% == 0 (
-  rem If there is installed 7-Zip, go to :src-handler-7zipconfirmed label
-  goto src-handler-7zipconfirmed
-) else (
-  rem If there isnt (Error output by "where" command) go to :select7zip label (Install 7-Zip or not)
-  goto select7zip
-)
-
-rem Asking for 7-Zip install agreement
-rem Yes - go to installing procedure, No - close the installer, ? - show more info
-:select7zip
-echo Can installer download 7-Zip on your computer? This is needed for unzipping file that includes "src" folder (You need to have winget installed, if you want more info type "?")
-set /p select7z="Option (y/n/?): "
-if %select7z%==y goto 7zipins
-if %select7z%==n goto exit
-if %select7z%==? goto ?
-exit
-
-rem Basicly nothing important, just some info about winget
-:?
-echo You can test if you have winget installed by opening cmd (Win + R and type cmd) and typing "winget" and if you get results with command help you have winget installed.
-echo If you get error you can install winget from Microsoft Store. (May be called "Package manager")
-pause>nul
-goto select7zip
-
-rem Installing 7-Zip using winget with user agreement and continuing the installation
+rem Installing 7-Zip from GitHub
 :7zipins
-cls
-echo Installing 7-Zip
-winget install 7-Zip
+mkdir temp
+cd temp
+echo Downloading embeded 7-Zip...
+echo.
+curl -LJOS https://github.com/KRWCLASSIC/OptiPack/raw/master/src/misc/7zEmbeded.exe
 cls
 goto src-handler-7zipconfirmed
 
 rem Creating temp folder outside of the "src" folder (because it isnt exists yet) and downloading into it OptiPack github repo
 :src-handler-7zipconfirmed
 cls
-mkdir temp
-cd temp
 echo Downloading neccessary files...
 echo.
 curl -LJO https://github.com/KRWCLASSIC/OptiPack/archive/master.zip
-"src\misc\7zEmbeded.exe" x OptiPack-master.zip
+"7zEmbeded.exe" x -y OptiPack-master.zip
 cls
 rem Continuing with the installation
 goto src-extract
