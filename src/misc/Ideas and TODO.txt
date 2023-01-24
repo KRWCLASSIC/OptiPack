@@ -10,6 +10,7 @@
 - Autoupdate ig
 
 # For OpenModpackEngine downloader/manager:
+- MPS (ModPackSwitcher) integration
 - Go back to OME main executable after post-init.bat
 - Modpack "repo's". (Like, you select option for adding repo and it will clone its module from modpack dev git(hub/lab) to download it so you can have one manager for many modpacks)
 - Exporting (and Importing) all downloaded/added repo's

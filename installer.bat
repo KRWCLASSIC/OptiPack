@@ -138,6 +138,8 @@ rem Creating temp folder outside of the "src" folder (because it isnt exists yet
 cls
 mkdir temp
 cd temp
+echo Downloading neccessary files...
+echo.
 curl -LJO https://github.com/KRWCLASSIC/OptiPack/archive/master.zip
 "C:\Program Files\7-Zip\7z.exe" x OptiPack-master.zip
 cls
