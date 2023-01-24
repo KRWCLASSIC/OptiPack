@@ -38,7 +38,7 @@ rem Use a for loop to iterate through all *.zip files
 for %%f in (temp\*.zip) do (
   echo Extracting files from %~nx1...
   rem Extract the current file using 7-Zip
-  "%cd%\misc\7zEmbeded.exe" x -y "%%f" -o"temp"
+  "%cd%\misc\7zEmbeded.exe" x -y "%%f" -o"temp" >nul
   del "%%f" 
 )
 echo Modpack files extracted.
