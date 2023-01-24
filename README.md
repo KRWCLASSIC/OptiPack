@@ -11,9 +11,7 @@ As for now you only need to download and execute "installer.bat". This will down
 - Can i edit it for my modpack? -
 Yes you can but i would prefer wait for standalone release, it will make it easier for everyone. (i mean bugs, errors etc.)
 - Is it safe? -
-Yes, if you dont belive read code.
-- Why are cheats stored in installer files? -
-Currently they're not but will be because one of the cheats doesnt support 1.19.2 natively, i had to manually edit jar file to allow 1.19.2 to load it.
+Yes, if you dont belive you can read the code.
 - Can you make version for 1.xx.x? -
 Maybe, i dont play versions below 1.16.5.
 - Why 1.19.2 not 1.19.3? -
