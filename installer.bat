@@ -46,17 +46,13 @@ rem Selection procedure
 echo 1) Test download to "test" folder.
 echo 2) Download full OptiPack.
 echo 3) Download minimal OptiPack.
-echo 4) Download full OptiPack with cheats.
-echo 5) Download minimal OptiPack with cheats.
-echo 6) Change deafult minecraft directory.
+echo 4) Change deafult minecraft directory.
 echo.
 set /p select="Option: "
 if %select%==1 goto 1
 if %select%==2 goto 2
 if %select%==3 goto 3
-if %select%==4 goto 4
-if %select%==5 goto 5
-if %select%==6 goto 6
+if %select%==6 goto 4
 rem Restart procedure
 if %select%==r goto r
 call installer.bat
@@ -81,16 +77,6 @@ call min-src.bat
 exit
 
 :4
-cd src/installers
-call full+cheats-src.bat
-exit
-
-:5
-cd src/installers
-call min+cheats-src.bat
-exit
-
-:6
 cd src/misc
 call chg-mc-dir.bat
 exit
