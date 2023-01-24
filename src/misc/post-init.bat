@@ -37,12 +37,13 @@ rem Use a for loop to iterate through all *.zip files
 for %%f in (*.zip) do (
   rem Extract the current file using 7-Zip
   "misc\7zEmbeded.exe" x -y "temp\%%f"
-  del "%%f" 
+  del "temp\%%f" 
 )
-echo.
 echo Modpack files extracted.
 timeout /t 2 >nul
 cls
+
+cd temp
 
 rem Moving mods procedure
 rem Iterate through all *.jar files in the temp directory
